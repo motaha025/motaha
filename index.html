@@ -1,476 +1,200 @@
-<!DOCTYPE html>  
-<html lang="ar" dir="rtl">  
-<head>  
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>Mohamed Taha Ismail</title>  
-  <style>  
-    :root {  
-      --primary-color: #4a6fa5;  
-      --secondary-color: #ff7e5f;  
-      --dark-color: #333;  
-      --light-color: #f8f9fa;  
-      --accent-color: #6c757d;  
-    }  
-    
-    body {  
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
-      line-height: 1.6;  
-      color: var(--dark-color);  
-      background-color: #f5f5f5;  
-      margin: 0;  
-      padding: 20px;  
-      text-align: center;  
-    }  
-    
-    .container {  
-      max-width: 800px;  
-      margin: 0 auto;  
-      background-color: white;  
-      padding: 30px;  
-      border-radius: 15px;  
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  
-    }  
-    
-    h1 {  
-      color: var(--primary-color);  
-      font-size: 2.5rem;  
-      margin-bottom: 10px;  
-    }  
-    
-    hr {  
-      border: 0;  
-      height: 2px;  
-      background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));  
-      width: 50%;  
-      margin: 20px auto;  
-    }  
-    
-    mark {  
-      background-color: rgba(74, 111, 165, 0.2);  
-      padding: 5px 10px;  
-      border-radius: 5px;  
-      display: inline-block;  
-      line-height: 1.8;  
-    }  
-    
-    h2 {  
-      color: var(--secondary-color);  
-      margin-top: 30px;  
-    }  
-    
-    img {  
-      max-width: 300px;  
-      height: auto;  
-      border-radius: 10px;  
-      border: 3px solid var(--primary-color);  
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
-      transition: transform 0.3s ease;  
-    }  
-    
-    img:hover {  
-      transform: scale(1.03);  
-    }  
-    
-    audio, iframe {  
-      width: 100%;  
-      max-width: 500px;  
-      margin: 15px auto;  
-      border-radius: 10px;  
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
-    }  
-    
-    ul {  
-      list-style-type: none;  
-      padding: 0;  
-      display: flex;  
-      flex-wrap: wrap;  
-      justify-content: center;  
-      gap: 15px;  
-    }  
-    
-    li a {  
-      display: inline-block;  
-      padding: 10px 20px;  
-      background-color: var(--primary-color);  
-      color: white;  
-      text-decoration: none;  
-      border-radius: 30px;  
-      transition: all 0.3s ease;  
-      font-weight: bold;  
-      min-width: 120px; /* عرض ثابت للأزرار */
-      text-align: center;
-    }  
-    
-    li a:hover {  
-      background-color: var(--secondary-color);  
-      transform: translateY(-3px);  
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);  
-    }  
-    
-    form {  
-      margin-top: 30px;  
-      max-width: 600px;  
-      margin-left: auto;  
-      margin-right: auto;  
-    }  
-    
-    textarea {  
-      width: 80%;  
-      padding: 15px;  
-      border: 2px solid var(--primary-color);  
-      border-radius: 10px;  
-      font-family: inherit;  
-      font-size: 1rem;  
-      resize: vertical;  
-      min-height: 150px;  
-      margin-bottom: 15px;  
-    }  
-    
-    input[type="submit"],  
-    #admin-section button,  
-    .message button {  
-      background-color: var(--secondary-color);  
-      color: white;  
-      border: none;  
-      padding: 12px 30px;  
-      font-size: 1rem;  
-      border-radius: 30px;  
-      cursor: pointer;  
-      transition: all 0.3s ease;  
-      font-weight: bold;  
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
-      margin: 5px;
-    }  
-    
-    input[type="submit"]:hover,  
-    #admin-section button:hover,  
-    .message button:hover {  
-<!DOCTYPE html>  
-<html lang="ar" dir="rtl">  
-<head>  
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>Mohamed Taha Ismail</title>  
-  <!-- Firebase SDK (الإصدار 9) -->
-  <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js'
-    import { getDatabase, ref, push, onValue, remove } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js'
-
-    // كود تهيئة Firebase مع رابط قاعدة البيانات الذي حصلت عليه
-    const firebaseConfig = {
-      apiKey: "AIzaSyActpIIHylsJ2ua542Si0nXZZyfmnUnP9M",
-      authDomain: "mohamed-3cd69.firebaseapp.com",
-      databaseURL: "https://mohamed-3cd69-default-rtdb.firebaseio.com",
-      projectId: "mohamed-3cd69",
-      storageBucket: "mohamed-3cd69.appspot.com",
-      messagingSenderId: "275106855348",
-      appId: "1:275106855348:web:96dda6bcfcc8de63ab9ae1",
-      measurementId: "G-BQPRJVDFTV"
-    };
-
-    // تهيئة Firebase
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
-
-    // كلمة المرور الإدارية
-    const ADMIN_PASSWORD = 'Mohamed333';
-      
-    // عند تحميل الصفحة  
-    document.addEventListener('DOMContentLoaded', function() {  
-      // إرسال الرسالة  
-      document.getElementById('message-form').addEventListener('submit', function(e) {  
-        e.preventDefault();  
-        const messageText = document.getElementById('message').value.trim();  
-          
-        if (messageText) {  
-          // إنشاء رسالة جديدة  
-          const newMessage = {  
-            text: messageText,  
-            date: new Date().toLocaleString('ar-EG'),  
-            timestamp: Date.now()  
-          };  
-            
-          // حفظ الرسالة في Firebase
-          push(ref(database, 'messages'), newMessage)
-            .then(() => {
-              // إظهار رسالة تأكيد  
-              alert('تم إرسال رسالتك بنجاح! شكراً لك ❤️');  
-                
-              // مسح حقل النص  
-              document.getElementById('message').value = '';
-            })
-            .catch((error) => {
-              console.error('Error saving message:', error);
-              alert('حدث خطأ أثناء حفظ الرسالة، يرجى المحاولة مرة أخرى');
-            });  
-        }  
-      });  
-    });  
-      
-    // عرض الرسائل من Firebase
-    function displayMessages() {  
-      const messagesContainer = document.getElementById('messages-container');  
-      messagesContainer.innerHTML = '<p>جاري تحميل الرسائل...</p>';  
-      messagesContainer.style.display = 'block';
-        
-      const messagesRef = ref(database, 'messages');
-      
-      onValue(messagesRef, (snapshot) => {
-        const messagesData = snapshot.val();
-        const messages = [];
-        
-        if (messagesData) {
-          for (const [key, value] of Object.entries(messagesData)) {
-            messages.push({
-              id: key,
-              ...value
-            });
-          }
-        }
-        
-        if (messages.length === 0) {  
-          messagesContainer.innerHTML = '<p>لا توجد رسائل بعد</p>';  
-          return;  
-        }  
-        
-        // عرض الرسائل من الأحدث إلى الأقدم
-        messages.sort((a, b) => b.timestamp - a.timestamp);
-        
-        messagesContainer.innerHTML = '';  
-        messages.forEach((msg) => {  
-          const messageElement = document.createElement('div');  
-          messageElement.className = 'message';  
-          messageElement.innerHTML = `  
-            <p>${msg.text}</p>  
-            <div class="message-date">${msg.date}</div>  
-            <button onclick="deleteMessage('${msg.id}')">حذف</button>  
-          `;  
-          messagesContainer.appendChild(messageElement);  
-        });  
-      }, {
-        onlyOnce: true
-      });
-    }  
-      
-    // حذف رسالة من Firebase
-    window.deleteMessage = function(messageId) {  
-      if (confirm('هل أنت متأكد من حذف هذه الرسالة؟')) {
-        remove(ref(database, 'messages/' + messageId))
-          .then(() => {
-            console.log('Message deleted successfully');
-          })
-          .catch((error) => {
-            console.error('Error deleting message:', error);
-            alert('حدث خطأ أثناء حذف الرسالة');
-          });
-      }
-    }  
-      
-    // التحقق من كلمة المرور  
-    window.checkPassword = function() {  
-      const password = document.getElementById('password-input').value;  
-      if (password === ADMIN_PASSWORD) {  
-        displayMessages();  
-      } else {  
-        alert('كلمة المرور غير صحيحة!');  
-      }  
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohamed Taha Ismail</title>
+  
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  
+  <style>
+    :root {
+      --primary-color: #4a6fa5;
+      --secondary-color: #ff7e5f;
+      --dark-color: #333;
+      --light-color: #f8f9fa;
+      --accent-color: #6c757d;
     }
-  </script>
-  <style>  
-    :root {  
-      --primary-color: #4a6fa5;  
-      --secondary-color: #ff7e5f;  
-      --dark-color: #333;  
-      --light-color: #f8f9fa;  
-      --accent-color: #6c757d;  
-    }  
     
-    body {  
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
-      line-height: 1.6;  
-      color: var(--dark-color);  
-      background-color: #f5f5f5;  
-      margin: 0;  
-      padding: 20px;  
-      text-align: center;  
-    }  
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--dark-color);
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
     
-    .container {  
-      max-width: 800px;  
-      margin: 0 auto;  
-      background-color: white;  
-      padding: 30px;  
-      border-radius: 15px;  
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  
-    }  
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
     
-    h1 {  
-      color: var(--primary-color);  
-      font-size: 2.5rem;  
-      margin-bottom: 10px;  
-    }  
+    h1 {
+      color: var(--primary-color);
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
     
-    hr {  
-      border: 0;  
-      height: 2px;  
-      background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));  
-      width: 50%;  
-      margin: 20px auto;  
-    }  
+    hr {
+      border: 0;
+      height: 2px;
+      background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));
+      width: 50%;
+      margin: 20px auto;
+    }
     
-    mark {  
-      background-color: rgba(74, 111, 165, 0.2);  
-      padding: 5px 10px;  
-      border-radius: 5px;  
-      display: inline-block;  
-      line-height: 1.8;  
-    }  
+    mark {
+      background-color: rgba(74, 111, 165, 0.2);
+      padding: 5px 10px;
+      border-radius: 5px;
+      display: inline-block;
+      line-height: 1.8;
+    }
     
-    h2 {  
-      color: var(--secondary-color);  
-      margin-top: 30px;  
-    }  
+    h2 {
+      color: var(--secondary-color);
+      margin-top: 30px;
+    }
     
-    img {  
-      max-width: 300px;  
-      height: auto;  
-      border-radius: 10px;  
-      border: 3px solid var(--primary-color);  
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
-      transition: transform 0.3s ease;  
-    }  
+    img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      border: 3px solid var(--primary-color);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
     
-    img:hover {  
-      transform: scale(1.03);  
-    }  
+    img:hover {
+      transform: scale(1.03);
+    }
     
-    audio, iframe {  
-      width: 100%;  
-      max-width: 500px;  
-      margin: 15px auto;  
-      border-radius: 10px;  
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
-    }  
+    ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
     
-    ul {  
-      list-style-type: none;  
-      padding: 0;  
-      display: flex;  
-      flex-wrap: wrap;  
-      justify-content: center;  
-      gap: 15px;  
-    }  
-    
-    li a {  
-      display: inline-block;  
-      padding: 10px 20px;  
-      background-color: var(--primary-color);  
-      color: white;  
-      text-decoration: none;  
-      border-radius: 30px;  
-      transition: all 0.3s ease;  
-      font-weight: bold;  
+    li a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      font-weight: bold;
       min-width: 120px;
       text-align: center;
-    }  
+    }
     
-    li a:hover {  
-      background-color: var(--secondary-color);  
-      transform: translateY(-3px);  
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);  
-    }  
+    li a:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
     
-    form {  
-      margin-top: 30px;  
-      max-width: 600px;  
-      margin-left: auto;  
-      margin-right: auto;  
-    }  
+    form {
+      margin-top: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
     
-    textarea {  
-      width: 80%;  
-      padding: 15px;  
-      border: 2px solid var(--primary-color);  
-      border-radius: 10px;  
-      font-family: inherit;  
-      font-size: 1rem;  
-      resize: vertical;  
-      min-height: 150px;  
-      margin-bottom: 15px;  
-    }  
+    textarea {
+      width: 80%;
+      padding: 15px;
+      border: 2px solid var(--primary-color);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 1rem;
+      resize: vertical;
+      min-height: 150px;
+      margin-bottom: 15px;
+    }
     
-    input[type="submit"],  
-    #admin-section button,  
-    .message button {  
-      background-color: var(--secondary-color);  
-      color: white;  
-      border: none;  
-      padding: 12px 30px;  
-      font-size: 1rem;  
-      border-radius: 30px;  
-      cursor: pointer;  
-      transition: all 0.3s ease;  
-      font-weight: bold;  
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
+    input[type="submit"],
+    #admin-section button,
+    .message button {
+      background-color: var(--secondary-color);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       margin: 5px;
-    }  
+    }
     
-    input[type="submit"]:hover,  
-    #admin-section button:hover,  
-    .message button:hover {  
-      background-color: var(--primary-color);  
-      transform: translateY(-3px);  
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);  
-    }  
+    input[type="submit"]:hover,
+    #admin-section button:hover,
+    .message button:hover {
+      background-color: var(--primary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
     
-    #messages-container {  
-      display: none;  
-      margin-top: 30px;  
-      text-align: right;  
-    }  
+    #messages-container {
+      display: none;
+      margin-top: 30px;
+      text-align: right;
+    }
     
-    .message {  
-      background-color: #f0f8ff;  
-      border-radius: 10px;  
-      padding: 15px;  
-      margin-bottom: 15px;  
-      border-left: 5px solid var(--primary-color);  
-    }  
+    .message {
+      background-color: #f0f8ff;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-left: 5px solid var(--primary-color);
+    }
     
-    .message-date {  
-      font-size: 0.8rem;  
-      color: var(--accent-color);  
-      margin-top: 5px;  
-    }  
+    .message-date {
+      font-size: 0.8rem;
+      color: var(--accent-color);
+      margin-top: 5px;
+    }
     
-    #admin-section {  
-      margin-top: 30px;  
-      padding: 20px;  
-      background-color: #f8f9fa;  
-      border-radius: 10px;  
-    }  
+    #admin-section {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+    }
     
-    #password-input {  
-      padding: 10px 15px;  
-      border: 1px solid var(--primary-color);  
-      border-radius: 30px;  
-      margin-right: 10px;  
+    #password-input {
+      padding: 10px 15px;
+      border: 1px solid var(--primary-color);
+      border-radius: 30px;
+      margin-right: 10px;
       width: 200px;
-    }  
+    }
     
-    @media (max-width: 600px) {  
-      .container {  
-        padding: 15px;  
-      }  
-        
-      h1 {  
-        font-size: 2rem;  
-      }  
-        
-      img {  
-        max-width: 100%;  
-      }  
+    @media (max-width: 600px) {
+      .container {
+        padding: 15px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      img {
+        max-width: 100%;
+      }
       
       li a {
         min-width: 100px;
@@ -483,50 +207,151 @@
         margin-bottom: 10px;
         margin-right: 0;
       }
-    }  
-  </style>  
-</head>  
-<body>  
-  <div class="container">  
-    <h1>  
-     ? Who I   
-    </h1>  
-    <hr>  
-    <p>  
-      <mark>  
-        <b>I am Mohamed Taha Ismail Hashem, in the second year of high school</b></br>  
-        <b>I love watching movies and TV series<br>  
-      ❤️  I love listening to Lege-Ce <br>  
-    😘  I love myself and I am very proud of myself</b>  
-      </mark>  
-    </p>  
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>? Who I</h1>
+    <hr>
+    <p>
+      <mark>
+        <b>I am Mohamed Taha Ismail Hashem, in the second year of high school</b><br>
+        <b>I love watching movies and TV series<br>
+        ❤️ I love listening to Lege-Ce<br>
+        😘 I love myself and I am very proud of myself</b>
+      </mark>
+    </p>
     
-    <h2>My Photo</h2>  
-    <img src="https://scontent.fcai19-4.fna.fbcdn.net/v/t39.30808-6/503308626_1244745724036994_7745647334091496763_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=8uzN4IGWxa4Q7kNvwFS9Ngq&_nc_oc=Adl2zO6dYtw-u5PTHPgpQQ3JRshpQP5UFGOJlcn7WiiMY9DqxuGOxro_Gdsa9EkY-Ho&_nc_zt=23&_nc_ht=scontent.fcai19-4.fna&_nc_gid=wyyUgioJaKFpGsPcjCOZdQ&oh=00_AfPzOlyfCYmgxusYSx0uSZHMgsqeoNIg9pgbQ7LCsjKnMg&oe=68631F93" alt="My Photo" title="Mohamed Taha">  
+    <h2>My Photo</h2>
+    <img src="https://scontent.fcai19-4.fna.fbcdn.net/v/t39.30808-6/503308626_1244745724036994_7745647334091496763_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=8uzN4IGWxa4Q7kNvwFS9Ngq&_nc_oc=Adl2zO6dYtw-u5PTHPgpQQ3JRshpQP5UFGOJlcn7WiiMY9DqxuGOxro_Gdsa9EkY-Ho&_nc_zt=23&_nc_ht=scontent.fcai19-4.fna&_nc_gid=wyyUgioJaKFpGsPcjCOZdQ&oh=00_AfPzOlyfCYmgxusYSx0uSZHMgsqeoNIg9pgbQ7LCsjKnMg&oe=68631F93" alt="My Photo" title="Mohamed Taha">
     
-    <h2>My Social Media</h2>  
-    <ul>  
-      <li><a href="https://www.facebook.com/share/1MKopAbQ7u/" target="_blank">Facebook</a></li>  
-      <li><a href="https://wa.me/+201028741692" target="_blank">Whatsapp</a></li>  
-      <li><a href="https://t.me/+201028741692" target="_blank">Telegram</a></li>  
-      <li><a href="https://tiktok.com/@mhmdtahacr3" target="_blank">TikTok</a></li>  
-    </ul>  
+    <h2>My Social Media</h2>
+    <ul>
+      <li><a href="https://www.facebook.com/share/1MKopAbQ7u/" target="_blank">Facebook</a></li>
+      <li><a href="https://wa.me/+201028741692" target="_blank">Whatsapp</a></li>
+      <li><a href="https://t.me/+201028741692" target="_blank">Telegram</a></li>
+      <li><a href="https://tiktok.com/@mhmdtahacr3" target="_blank">TikTok</a></li>
+    </ul>
     
-    <form id="message-form">  
-      <label for="message">  
-        <h2>كلمتين بالحب يا مان</h2>  
-      </label>  
-      <textarea required name="message" id="message" cols="10" rows="6" placeholder="اكتب رسالتك هنا..."></textarea><br>  
-      <input type="submit" value="إرسال">  
-    </form>  
+    <form id="message-form">
+      <label for="message">
+        <h2>كلمتين بالحب يا مان</h2>
+      </label>
+      <textarea required name="message" id="message" cols="10" rows="6" placeholder="اكتب رسالتك هنا..."></textarea><br>
+      <input type="submit" value="إرسال">
+    </form>
     
-    <!-- قسم إداري لعرض الرسائل -->  
-    <div id="admin-section">  
-      <h2>الرسائل الواردة</h2>  
-      <input type="password" id="password-input" placeholder="كلمة المرور">  
-      <button onclick="checkPassword()">عرض الرسائل</button>  
-      <div id="messages-container"></div>  
-    </div>  
-  </div>  
-</body>  
+    <div id="admin-section">
+      <h2>الرسائل الواردة</h2>
+      <input type="password" id="password-input" placeholder="كلمة المرور">
+      <button onclick="checkPassword()">عرض الرسائل</button>
+      <div id="messages-container"></div>
+    </div>
+  </div>
+
+  <script>
+    // كود تهيئة Firebase مع رابط قاعدة البيانات
+    const firebaseConfig = {
+      apiKey: "AIzaSyActpIIHylsJ2ua542Si0nXZZyfmnUnP9M",
+      authDomain: "mohamed-3cd69.firebaseapp.com",
+      databaseURL: "https://mohamed-3cd69-default-rtdb.firebaseio.com",
+      projectId: "mohamed-3cd69",
+      storageBucket: "mohamed-3cd69.appspot.com",
+      messagingSenderId: "275106855348",
+      appId: "1:275106855348:web:96dda6bcfcc8de63ab9ae1",
+      measurementId: "G-BQPRJVDFTV"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+    
+    console.log("Firebase initialized successfully!");
+
+    const ADMIN_PASSWORD = 'Mohamed333';
+      
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('message-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const messageText = document.getElementById('message').value.trim();
+          
+        if (messageText) {
+          const newMessage = {
+            text: messageText,
+            date: new Date().toLocaleString('ar-EG'),
+            timestamp: Date.now()
+          };
+            
+          // حفظ الرسالة في Firebase
+          database.ref('messages').push(newMessage)
+            .then(() => {
+              alert('تم إرسال رسالتك بنجاح! شكراً لك ❤️');
+              document.getElementById('message').value = '';
+            })
+            .catch((error) => {
+              console.error("Error saving message:", error);
+              alert("حدث خطأ: " + error.message);
+            });
+        }
+      });
+    });
+      
+    function displayMessages() {
+      const messagesContainer = document.getElementById('messages-container');
+      messagesContainer.innerHTML = '<p>جاري تحميل الرسائل...</p>';
+      messagesContainer.style.display = 'block';
+        
+      database.ref('messages').once('value')
+        .then((snapshot) => {
+          const messagesData = snapshot.val();
+          console.log("Messages data:", messagesData);
+          
+          if (!messagesData) {
+            messagesContainer.innerHTML = '<p>لا توجد رسائل بعد</p>';
+            return;
+          }
+          
+          messagesContainer.innerHTML = '';
+          Object.keys(messagesData).forEach((key) => {
+            const msg = messagesData[key];
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message';
+            messageElement.innerHTML = `
+              <p>${msg.text}</p>
+              <div class="message-date">${msg.date}</div>
+              <button onclick="deleteMessage('${key}')">حذف</button>
+            `;
+            messagesContainer.appendChild(messageElement);
+          });
+        })
+        .catch((error) => {
+          console.error("Error loading messages:", error);
+          messagesContainer.innerHTML = '<p>حدث خطأ في تحميل الرسائل</p>';
+        });
+    }
+      
+    function deleteMessage(messageId) {
+      if (confirm('هل أنت متأكد من حذف هذه الرسالة؟')) {
+        database.ref('messages/' + messageId).remove()
+          .then(() => {
+            displayMessages();
+          })
+          .catch((error) => {
+            console.error("Error deleting message:", error);
+            alert("حدث خطأ أثناء حذف الرسالة");
+          });
+      }
+    }
+      
+    function checkPassword() {
+      const password = document.getElementById('password-input').value;
+      if (password === ADMIN_PASSWORD) {
+        displayMessages();
+      } else {
+        alert('كلمة المرور غير صحيحة!');
+      }
+    }
+  </script>
+</body>
 </html>
