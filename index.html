@@ -1,211 +1,344 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohamed Taha Ismail</title>
-  <style>
-    :root {
-      --primary-color: #4a6fa5;
-      --secondary-color: #ff7e5f;
-      --dark-color: #333;
-      --light-color: #f8f9fa;
-      --accent-color: #6c757d;
-    }
+<!DOCTYPE html>  
+<html lang="ar" dir="rtl">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Mohamed Taha Ismail</title>  
+  <style>  
+    :root {  
+      --primary-color: #4a6fa5;  
+      --secondary-color: #ff7e5f;  
+      --dark-color: #333;  
+      --light-color: #f8f9fa;  
+      --accent-color: #6c757d;  
+    }  
     
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: var(--dark-color);
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 20px;
+    body {  
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+      line-height: 1.6;  
+      color: var(--dark-color);  
+      background-color: #f5f5f5;  
+      margin: 0;  
+      padding: 20px;  
+      text-align: center;  
+    }  
+    
+    .container {  
+      max-width: 800px;  
+      margin: 0 auto;  
+      background-color: white;  
+      padding: 30px;  
+      border-radius: 15px;  
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  
+    }  
+    
+    h1 {  
+      color: var(--primary-color);  
+      font-size: 2.5rem;  
+      margin-bottom: 10px;  
+    }  
+    
+    hr {  
+      border: 0;  
+      height: 2px;  
+      background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));  
+      width: 50%;  
+      margin: 20px auto;  
+    }  
+    
+    mark {  
+      background-color: rgba(74, 111, 165, 0.2);  
+      padding: 5px 10px;  
+      border-radius: 5px;  
+      display: inline-block;  
+      line-height: 1.8;  
+    }  
+    
+    h2 {  
+      color: var(--secondary-color);  
+      margin-top: 30px;  
+    }  
+    
+    img {  
+      max-width: 300px;  
+      height: auto;  
+      border-radius: 10px;  
+      border: 3px solid var(--primary-color);  
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
+      transition: transform 0.3s ease;  
+    }  
+    
+    img:hover {  
+      transform: scale(1.03);  
+    }  
+    
+    audio, iframe {  
+      width: 100%;  
+      max-width: 500px;  
+      margin: 15px auto;  
+      border-radius: 10px;  
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    }  
+    
+    ul {  
+      list-style-type: none;  
+      padding: 0;  
+      display: flex;  
+      flex-wrap: wrap;  
+      justify-content: center;  
+      gap: 15px;  
+    }  
+    
+    li a {  
+      display: inline-block;  
+      padding: 10px 20px;  
+      background-color: var(--primary-color);  
+      color: white;  
+      text-decoration: none;  
+      border-radius: 30px;  
+      transition: all 0.3s ease;  
+      font-weight: bold;  
+      min-width: 120px; /* عرض ثابت للأزرار */
       text-align: center;
-    }
+    }  
     
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
+    li a:hover {  
+      background-color: var(--secondary-color);  
+      transform: translateY(-3px);  
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);  
+    }  
     
-    h1 {
-      color: var(--primary-color);
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
+    form {  
+      margin-top: 30px;  
+      max-width: 600px;  
+      margin-left: auto;  
+      margin-right: auto;  
+    }  
     
-    hr {
-      border: 0;
-      height: 2px;
-      background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));
-      width: 50%;
-      margin: 20px auto;
-    }
+    textarea {  
+      width: 80%;  
+      padding: 15px;  
+      border: 2px solid var(--primary-color);  
+      border-radius: 10px;  
+      font-family: inherit;  
+      font-size: 1rem;  
+      resize: vertical;  
+      min-height: 150px;  
+      margin-bottom: 15px;  
+    }  
     
-    mark {
-      background-color: rgba(74, 111, 165, 0.2);
-      padding: 5px 10px;
-      border-radius: 5px;
-      display: inline-block;
-      line-height: 1.8;
-    }
+    input[type="submit"],  
+    #admin-section button,  
+    .message button {  
+      background-color: var(--secondary-color);  
+      color: white;  
+      border: none;  
+      padding: 12px 30px;  
+      font-size: 1rem;  
+      border-radius: 30px;  
+      cursor: pointer;  
+      transition: all 0.3s ease;  
+      font-weight: bold;  
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
+      margin: 5px;
+    }  
     
-    h2 {
-      color: var(--secondary-color);
-      margin-top: 30px;
-    }
+    input[type="submit"]:hover,  
+    #admin-section button:hover,  
+    .message button:hover {  
+      background-color: var(--primary-color);  
+      transform: translateY(-3px);  
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);  
+    }  
     
-    img {
-      max-width: 300px;
-      height: auto;
-      border-radius: 10px;
-      border: 3px solid var(--primary-color);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease;
-    }
+    /* أنماط جديدة للرسائل */  
+    #messages-container {  
+      display: none;  
+      margin-top: 30px;  
+      text-align: right;  
+    }  
     
-    img:hover {
-      transform: scale(1.03);
-    }
+    .message {  
+      background-color: #f0f8ff;  
+      border-radius: 10px;  
+      padding: 15px;  
+      margin-bottom: 15px;  
+      border-left: 5px solid var(--primary-color);  
+    }  
     
-    audio, video {
-      width: 100%;
-      max-width: 500px;
-      margin: 15px auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+    .message-date {  
+      font-size: 0.8rem;  
+      color: var(--accent-color);  
+      margin-top: 5px;  
+    }  
     
-    ul {
-      list-style-type: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
+    #admin-section {  
+      margin-top: 30px;  
+      padding: 20px;  
+      background-color: #f8f9fa;  
+      border-radius: 10px;  
+    }  
     
-    li a {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: var(--primary-color);
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      transition: all 0.3s ease;
-      font-weight: bold;
-    }
+    #password-input {  
+      padding: 10px 15px;  
+      border: 1px solid var(--primary-color);  
+      border-radius: 30px;  
+      margin-right: 10px;  
+      width: 200px;
+    }  
     
-    li a:hover {
-      background-color: var(--secondary-color);
-      transform: translateY(-3px);
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    }
-    
-    form {
-      margin-top: 30px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    textarea {
-      width: 100%;
-      padding: 15px;
-      border: 2px solid var(--primary-color);
-      border-radius: 10px;
-      font-family: inherit;
-      font-size: 1rem;
-      resize: vertical;
-      min-height: 150px;
-      margin-bottom: 15px;
-    }
-    
-    textarea:focus {
-      border-color: var(--secondary-color);
-      box-shadow: 0 0 8 3px rgba(255, 126, 50, 0.3);
-    }
-    
-    input[type="submit"] {
-      background-color: var(--secondary-color);
-      color: white;
-      border: none;
-      padding: 12px 30px;
-      font-size: 1rem;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-weight: bold;
-    }
-    
-    input[type="submit"]:hover {
-      background-color: var(--primary-color);
-      transform: translateY(-3px);
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    }
-    
-    @media (max-width: 600px) {
-      .container {
-        padding: 15px;
+    @media (max-width: 600px) {  
+      .container {  
+        padding: 15px;  
+      }  
+        
+      h1 {  
+        font-size: 2rem;  
+      }  
+        
+      img {  
+        max-width: 100%;  
+      }  
+      
+      li a {
+        min-width: 100px;
+        padding: 8px 15px;
+        font-size: 0.9rem;
       }
       
-      h1 {
-        font-size: 2rem;
+      #password-input {
+        width: 150px;
+        margin-bottom: 10px;
+        margin-right: 0;
       }
+    }  
+  </style>  
+</head>  
+<body>  
+  <div class="container">  
+    <h1>  
+     ? Who I   
+    </h1>  
+    <hr>  
+    <p>  
+      <mark>  
+        <b>I am Mohamed Taha Ismail Hashem, in the second year of high school</b></br>  
+        <b>I love watching movies and TV series<br>  
+      ❤️  I love listening to Lege-Ce <br>  
+    😘  I love myself and I am very proud of myself</b>  
+      </mark>  
+    </p>  
+    
+    <h2>My Photo</h2>  
+    <img src="https://scontent.fcai19-4.fna.fbcdn.net/v/t39.30808-6/503308626_1244745724036994_7745647334091496763_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=8uzN4IGWxa4Q7kNvwFS9Ngq&_nc_oc=Adl2zO6dYtw-u5PTHPgpQQ3JRshpQP5UFGOJlcn7WiiMY9DqxuGOxro_Gdsa9EkY-Ho&_nc_zt=23&_nc_ht=scontent.fcai19-4.fna&_nc_gid=wyyUgioJaKFpGsPcjCOZdQ&oh=00_AfPzOlyfCYmgxusYSx0uSZHMgsqeoNIg9pgbQ7LCsjKnMg&oe=68631F93" alt="My Photo" title="Mohamed Taha">  
+    
+    <h2>My Social Media</h2>  
+    <ul>  
+      <li><a href="https://www.facebook.com/share/1MKopAbQ7u/" target="_blank">Facebook</a></li>  
+      <li><a href="https://wa.me/+201028741692" target="_blank">Whatsapp</a></li>  
+      <li><a href="https://t.me/+201028741692" target="_blank">Telegram</a></li>  
+      <li><a href="https://tiktok.com/@mhmdtahacr3" target="_blank">TikTok</a></li>  
+    </ul>  
+    
+    <form id="message-form">  
+      <label for="message">  
+        <h2>كلمتين بالحب يا مان</h2>  
+      </label>  
+      <textarea required name="message" id="message" cols="10" rows="6" placeholder="اكتب رسالتك هنا..."></textarea><br>  
+      <input type="submit" value="إرسال">  
+    </form>  
+    
+    <!-- قسم إداري لعرض الرسائل -->  
+    <div id="admin-section">  
+      <h2>الرسائل الواردة</h2>  
+      <input type="password" id="password-input" placeholder="كلمة المرور">  
+      <button onclick="checkPassword()">عرض الرسائل</button>  
+      <div id="messages-container"></div>  
+    </div>  
+  </div>  
+    
+  <script>  
+    // تخزين الرسائل في localStorage  
+    const MESSAGES_KEY = 'secretMessages';  
+    const ADMIN_PASSWORD = 'Mohamed333'; // كلمة المرور الجديدة  
       
-      img {
-        max-width: 100%;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <div class="container">
-    <h1>انا مين</h1>
-    <hr>
-    <p>
-      <mark>
-        <b>I'm Mohamed Taha Ismail Hashim Hussien Redwan
-      </mark>
-    </p>
-    
-    <h2>My Photo</h2>
-    <img src="/Picsart_25-04-06_16-05-10-629.jpg" alt="My Photo" title="Mohamed Taha">
-    
-    <h2>My Love Song</h2>
-    <audio controls loop>
-      <source src="/FARAWLA - فراولة(MP3_320K).mp3" type="audio/mpeg">
-      Your browser doesn't support the audio element.
-    </audio>
-    
-    <h2>My Love Video</h2>
-    <video controls poster="/Picsart_25-03-20_15-21-19-011.png">
-      <source src="/the memes(HD).mp4" type="video/mp4">
-      Your browser doesn't support the video element.
-    </video>
-    
-    <h2>My Social Media</h2>
-    <ul>
-      <li><a href="https://www.facebook.com/share/1MKopAbQ7u/" target="_blank">My Facebook</a></li>
-      <li><a href="https://wa.me/+201028741692" target="_blank">My Whatsapp</a></li>
-      <li><a href="https://mthamoksha.sarhne.com" target="_blank">My Sarhne</a></li>
-      <li><a href="tiktok.com/@mhmdtahacr3" target="_blank">My TikTok</a></li>
-    </ul>
-    
-    <form>
-      <label for="message">
-        <h2>كلمتين بالحب يا مان</h2>
-      </label>
-      <textarea required name="message" id="message" cols="10" rows="6" placeholder="اكتب رسالتك هنا..."></textarea><br>
-      <input for="massage"type="submit" value="إرسال">
-    </form>
-  </div>
-</body>
-
+    // عند تحميل الصفحة  
+    document.addEventListener('DOMContentLoaded', function() {  
+      // إرسال الرسالة  
+      document.getElementById('message-form').addEventListener('submit', function(e) {  
+        e.preventDefault();  
+        const messageText = document.getElementById('message').value.trim();  
+          
+        if (messageText) {  
+          // إنشاء رسالة جديدة  
+          const newMessage = {  
+            text: messageText,  
+            date: new Date().toLocaleString('ar-EG'),  
+            timestamp: Date.now()  
+          };  
+            
+          // حفظ الرسالة  
+          saveMessage(newMessage);  
+            
+          // إظهار رسالة تأكيد  
+          alert('تم إرسال رسالتك بنجاح! شكراً لك ❤️');  
+            
+          // مسح حقل النص  
+          document.getElementById('message').value = '';  
+        }  
+      });  
+    });  
+      
+    // حفظ الرسالة في localStorage  
+    function saveMessage(message) {  
+      let messages = JSON.parse(localStorage.getItem(MESSAGES_KEY)) || [];  
+      messages.push(message);  
+      localStorage.setItem(MESSAGES_KEY, JSON.stringify(messages));  
+    }  
+      
+    // عرض الرسائل  
+    function displayMessages() {  
+      const messagesContainer = document.getElementById('messages-container');  
+      messagesContainer.innerHTML = '';  
+        
+      const messages = JSON.parse(localStorage.getItem(MESSAGES_KEY)) || [];  
+        
+      if (messages.length === 0) {  
+        messagesContainer.innerHTML = '<p>لا توجد رسائل بعد</p>';  
+        return;  
+      }  
+        
+      messages.forEach((msg, index) => {  
+        const messageElement = document.createElement('div');  
+        messageElement.className = 'message';  
+        messageElement.innerHTML = `  
+          <p>${msg.text}</p>  
+          <div class="message-date">${msg.date}</div>  
+          <button onclick="deleteMessage(${index})">حذف</button>  
+        `;  
+        messagesContainer.appendChild(messageElement);  
+      });  
+        
+      messagesContainer.style.display = 'block';  
+    }  
+      
+    // حذف رسالة  
+    function deleteMessage(index) {  
+      let messages = JSON.parse(localStorage.getItem(MESSAGES_KEY)) || [];  
+      messages.splice(index, 1);  
+      localStorage.setItem(MESSAGES_KEY, JSON.stringify(messages));  
+      displayMessages();  
+    }  
+      
+    // التحقق من كلمة المرور  
+    function checkPassword() {  
+      const password = document.getElementById('password-input').value;  
+      if (password === ADMIN_PASSWORD) {  
+        displayMessages();  
+      } else {  
+        alert('كلمة المرور غير صحيحة!');  
+      }  
+    }  
+  </script>  
+</body>  
 </html>
