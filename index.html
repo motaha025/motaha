@@ -222,15 +222,52 @@
     <input type="submit" value="إرسال">
   </form>
 
-  <div id="admin-section">
-    <h2>الرسائل الواردة</h2>
-    <input type="password" id="password-input" placeholder="كلمة المرور">
-    <button onclick="checkPassword()">عرض الرسائل</button>
-    <div id="messages-container"></div>
-  </div>
-</div>
+  
 
 <script>
+
+
+
+
+
+
+ScrollReveal().reveal('.container', {
+  duration: 1000,
+  origin: 'bottom',
+  distance: '50px',
+  reset: true
+});
+
+ScrollReveal().reveal('h2, img, ul, form, #admin-section', {
+  duration: 1000,
+  origin: 'top',
+  distance: '50px',
+  interval: 200,
+  reset: true
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   const firebaseConfig = {
     apiKey: "AIzaSyActpIIHylsJ2ua542Si0nXZZyfmnUnP9M",
     authDomain: "mohamed-3cd69.firebaseapp.com",
